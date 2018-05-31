@@ -8,11 +8,11 @@
 - [ ] Structure of flow inside the form
 
 
-**USAGE**
-[1]. in `save` we have to define the ticker of the coin as `coin.TICKER.name` .
-[2]. `cviu` gives value of the coin in usd. 
-[3]  `amountx` is the amount of coin.
-[4]   **bug** :  `swachhtokensx` does not gives 'NaN' during running. However doing the same thing works in the console
-[5] `swachhtokensx` gives the net amount of tokens.
+**USAGE**   
+[1]. in `save` we have to define the ticker of the coin as `coin.TICKER.name`     
+[2]. `cviu` gives value of the coin in usd.     
+[3]  `amountx` is the amount of coin.   
+[4]   **bug** :  `swachhtokensx` does not gives 'NaN' during running. However doing the same thing works in the console   
+[5] `swachhtokensx` gives the net amount of tokens.   
 
 **bug** has been highlighted in usage
