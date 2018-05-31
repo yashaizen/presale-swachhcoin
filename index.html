@@ -11,80 +11,92 @@
   <input id="grab"> pivx
   </input>
   <div id="coinprice">
-
   </div>
   <script>
-    var x = document.getElementById("grab");
-    var y = x.value;
-    console.log(y);
     // to get value of coin name in usd
-    let cviu = 0;
-    $.get("https://api.coinmarketcap.com/v1/ticker/", function(data, status) {
-      for (var i = 0; i < data.length - 1; i++) {
-        if (data[i].id == "pivx") {
-          let a = (data[i].price_usd);
-          console.log(a);
-        }
-      }
-    });
+    let cviu;
+
 
     // coin properties
 
 
     let coin = {
       "ETH": {
-        "name": "Ether",
+        "name": "ether",
         "ticker": "ETH",
         "cviu": cviu,
       },
       "BTC": {
-        "name": "Bitcoin",
+        "name": "bitcoin",
         "ticker": "BTC",
         "cviu": cviu,
       },
       "BCH": {
-        "name": "Bitcoin Cash",
+        "name": "bitcoin-cash",
         "ticker": "BCH",
         "cviu": cviu,
       },
       "XRP": {
-        "name": "Ripple",
+        "name": "ripple",
         "ticker": "XRP",
         "cviu": cviu,
       },
       "LTC": {
-        "name": "Litecoin",
+        "name": "litecoin",
         "ticker": "LTC",
         "cviu": cviu,
       },
       "NEO": {
-        "name": "Neo",
+        "name": "neo",
         "ticker": "NEO",
         "cviu": cviu,
       },
       "XMR": {
-        "name": "Monero",
+        "name": "monero",
         "ticker": "XMR",
         "cviu": cviu,
       },
       "DASH": {
-        "name": "Dash",
+        "name": "dash",
         "ticker": "DASH",
         "cviu": cviu,
       },
       "KCS": {
-        "name": "Kucoin Shares",
+        "name": "kucoin-shares",
         "ticker": "KCS",
         "cviu": cviu,
       },
       "BNB": {
-        "name": "Binance Coin",
+        "name": "binance-coin",
         "ticker": "BNB",
         "cviu": cviu,
       }
     }
 
-    swachhtokens = (cviu) / (0.04);
+    // define save as the ticker of the coin whose value is to be calculated
+
+    let save = coin.BCH.name;
+
+    // find value of the coin
+
+    $.get("https://api.coinmarketcap.com/v1/ticker/", function(data, status) {
+      for (var i = 0; i < data.length - 1; i++) {
+        if (data[i].id == save) {
+          let a = (data[i].price_usd);
+          cviu = parseFloat(a);
+          console.log(a);
+        }
+      }
+    }).then(function(value) {
+      return value;
+    });
+
+    let amountx = 10;
+    let netvaluexy = (cviu * amountx);
+
+    //final amount gained
+
+    let swachhtokensx = netvaluexy / 0.04;
   </script>
 </body>
 
